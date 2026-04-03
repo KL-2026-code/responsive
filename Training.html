@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Training</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    color: #111827;
+    background-image: url('images/hintergrund.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  a { color: #1e3a8a; text-decoration: none; }
+  a:hover { color: #3b82f6; }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.9);
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .nav-links a { margin: 0 1rem; text-align: center; font-size: 0.9rem; }
+  .nav-links a i { display: block; font-size: 1.2rem; margin-bottom: 0.2rem; }
+
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: rgba(255,255,255,0.85);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    line-height: 1.7;
+  }
+
+  footer {
+    background-image: url('images/footer.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+  }
+  footer a { color: white; }
+  footer a:hover { color: #facc15; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="w-full">
+  <img src="images/header.png" alt="Header" class="w-full h-auto object-cover">
+</header>
+
+<!-- NAVIGATION -->
+<nav class="nav-links">
+  <a href="index.html"><i class="fa fa-home"></i>Home</a>
+  <a href="Uber-uns.html"><i class="fa fa-users"></i>Über uns</a>
+  <a href="Uber-Aikido.html"><i class="fa fa-graduation-cap"></i>Über Aikido</a>
+  <a href="Galerie.html"><i class="fa fa-photo-film"></i>Galerie</a>
+  <a href="Links.html"><i class="fa fa-square-up-right"></i>Links</a>
+  <a href="Anfahrt.html"><i class="fa fa-map-location-dot"></i>Anfahrt</a>
+  <a href="Training.html"><i class="fa fa-calendar-days"></i>Training</a>
+  <a href="Kontakt.html"><i class="fa fa-envelope"></i>Kontakt</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main>
+  <h1 class="text-3xl font-bold mb-4">Trainingszeiten</h1>
+  <p><strong>Montags:</strong> 19.45 - 21.30 Uhr – Erwachsene und Jugendliche ab 16 Jahren</p>
+  <p><strong>Donnerstags:</strong> 18.00 - 19.30 Uhr – Fortgeschrittene<br>
+     19.45 - 21.30 Uhr – Erwachsene und Jugendliche ab 16 Jahren</p>
+  <p><strong>Sonntags:</strong><br>
+     Sonntags wird bei Bedarf (z. B. Prüfungsvorbereitung) trainiert. Der Bedarf wird jeweils beim Montagstraining abgefragt.</p>
+  <p>In den Schulferien und an gesetzlichen Feiertagen findet kein Training statt, da wir in einer städtischen Schulhalle trainieren.</p>
+</main>
+
+<!-- FOOTER -->
+<footer class="shadow-inner mt-10">
+  <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-sm">
+    <div>
+      Like us on: 
+      <a href="https://de-de.facebook.com/AikidoHamm" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-facebook-square ml-2 hover:text-yellow-400 transition"></i>
+      </a>
+    </div>
+    <div class="flex space-x-4">
+      <a href="Impressum.html" class="hover:text-yellow-400 transition">Impressum</a>
+      <a href="Datenschutz.html" class="hover:text-yellow-400 transition">Datenschutzerklärung</a>
+    </div>
+    <div>&copy; 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>

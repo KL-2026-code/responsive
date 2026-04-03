@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="magnificpopup/magnific-popup.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="magnificpopup/jquery.magnific-popup.min.js"></script>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-image: url('images/hintergrund.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.9);
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .nav-links a { margin: 0 1rem; text-align: center; font-size: 0.9rem; }
+  .nav-links a i { display: block; font-size: 1.2rem; margin-bottom: 0.2rem; }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  footer {
+    background-image: url('images/footer.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  footer a { color: white; }
+  footer a:hover { color: #facc15; }
+</style>
+</head>
+<body>
+
+<header class="w-full">
+  <img src="images/header.png" alt="Header" class="w-full h-auto object-cover">
+</header>
+
+<nav class="nav-links">
+  <a href="index.html"><i class="fa fa-home"></i>Home</a>
+  <a href="Uber-uns.html"><i class="fa fa-users"></i>Über uns</a>
+  <a href="Uber-Aikido.html"><i class="fa fa-graduation-cap"></i>Über Aikido</a>
+  <a href="Galerie.html"><i class="fa fa-photo-film"></i>Galerie</a>
+  <a href="Links.html"><i class="fa fa-square-up-right"></i>Links</a>
+  <a href="Anfahrt.html"><i class="fa fa-map-location-dot"></i>Anfahrt</a>
+  <a href="Training.html"><i class="fa fa-calendar-days"></i>Training</a>
+  <a href="Kontakt.html"><i class="fa fa-envelope"></i>Kontakt</a>
+</nav>
+
+<main>
+  <h1 class="text-3xl font-bold text-center mt-6">Galerie</h1>
+  <div class="gallery" id="PhotoGallery1">
+    <a href="images/2_TrainingHebel1.jpg"><img src="images/tn_2_TrainingHebel1.jpg" alt="Hebel müssen nicht wehtun, können aber"></a>
+	<a href="images/3_Trainerin2.jpg"><img src="images/tn_3_Trainerin2.jpg" alt="unsere Trainerin Beate (4.Dan)"></a>   
+    <a href="images/4_TrainingWurf4.jpg"><img src="images/tn_4_TrainingWurf4.jpg" alt="Kopfüber ins Vergnügen"></a>	
+    <a href="images/5_LehrgangHerten.jpg"><img src="images/tn_5_LehrgangHerten.jpg" alt="Lehrgang auf der Halde in Herten"></a>
+    <a href="images/6_TrainingHebel2.jpg"><img src="images/tn_6_TrainingHebel2.jpg" alt="wir haben immer viel Spaß..."></a>
+	<a href="images/6b_TrainingHamm6Matte.jpg"><img src="images/6b_TrainingHamm6Matte.jpg" alt="hier trainieren wir ..."></a>
+	<a href="images/7_AusflugKanu.jpg"><img src="images/tn_7_AusflugKanu.jpg" alt="Sommerausflug Paddeln auf der Lippe"></a>
+	<a href="images/8_AusflugRudern.jpg"><img src="images/tn_8_AusflugRudern.jpg" alt="Ausflug im Ruderboot"></a>
+    <!-- Weitere Thumbnails hier einfügen -->
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="shadow-inner mt-10">
+  <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-sm">
+    <div>
+      Like us on: 
+      <a href="https://de-de.facebook.com/AikidoHamm" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-facebook-square ml-2 hover:text-yellow-400 transition"></i>
+      </a>
+    </div>
+    <div class="flex space-x-4">
+      <a href="Impressum.html" class="hover:text-yellow-400 transition">Impressum</a>
+      <a href="Datenschutz.html" class="hover:text-yellow-400 transition">Datenschutzerklärung</a>
+    </div>
+    <div>&copy; 2026</div>
+  </div>
+</footer>
+
+<script>
+$(document).ready(function() {
+  $("#PhotoGallery1").magnificPopup({
+    delegate: 'a',
+    type: 'image',
+    gallery: { enabled: true, navigateByImgClick: true },
+    zoom: { enabled: true, duration: 300, easing: 'ease-in-out' }
+  });
+});
+</script>
+
+</body>
+</html>
