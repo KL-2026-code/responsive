@@ -30,29 +30,69 @@
   .nav-links a { margin: 0 1rem; text-align: center; font-size: 0.9rem; }
   .nav-links a i { display: block; font-size: 1.2rem; margin-bottom: 0.2rem; }
 
+/* Hero-Bereich Desktop */
+.hero {
+  max-width: 1200px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;         /* Vertikal zentriert Desktop */
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+/* Kanji-Größe Desktop */
+ .hero-kanji {
+  width: 160px;
+  opacity: 0.3;
+ }
+
+/* Hero-Bild */
+.hero-image {
+  max-width: 766px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+ }
+
+/* Mobile-Anpassung */
+@media(max-width: 768px) {
   .hero {
-    max-width: 1200px;
-    margin: 3rem auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 0 1rem;
+    flex-direction: row;         /* Kanji links, Bild rechts */
+    align-items: center;         /* Vertikal zentriert */
+    justify-content: flex-start; /* linksbündig */
+    gap: 1rem;
   }
-  .hero-kanji { width: 160px; opacity: 0.3; }
-  .hero-image {
-    max-width: 766px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  
+  .hero-kanji {
+    width: 80px;                 /* kleineres Kanji */
+    opacity: 0.3;
+  }
+  
+  /* Kanji Slide-In Animation */
+  .hero-kanji {
+    transform: translateX(-50px);  /* Start links */
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
   }
 
-  @media(max-width: 768px) {
-    .hero { flex-direction: column; }
-    .hero-kanji { margin-bottom: 1rem; }
+  .hero-kanji.visible {
+    transform: translateX(0);
+    opacity: 0.3; /* wie vorher */
   }
+  
+  .hero-image {
+    width: calc(100% - 90px);    /* Restbreite für Bild */
+  }
+
+  /* Optional: noch vertikal zentrieren im Container, falls der Bereich höher wird */
+  .hero {
+    min-height: 200px;
+  }
+}
+ 
 
   footer {
     background-image: url('images/footer.jpg');
@@ -63,6 +103,44 @@
   }
   footer a { color: white; }
   footer a:hover { color: #facc15; }
+  
+/* Container für Navigation */
+.nav-container {
+  position: relative;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+/* MOBILE */
+@media(max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;              /* versteckt */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links.show {
+    display: flex;              /* sichtbar */
+  }
+
+  .nav-links a {
+    margin: 0.5rem 0;
+  }
+}
 </style>
 </head>
 <body>
@@ -73,16 +151,22 @@
 </header>
 
 <!-- NAVIGATION -->
-<nav class="nav-links">
-  <a href="index.html"><i class="fa fa-home"></i>Home</a>
-  <a href="Uber-uns.html"><i class="fa fa-users"></i>Über uns</a>
-  <a href="Uber-Aikido.html"><i class="fa fa-graduation-cap"></i>Über Aikido</a>
-  <a href="Galerie.html"><i class="fa fa-photo-film"></i>Galerie</a>
-  <a href="Links.html"><i class="fa fa-square-up-right"></i>Links</a>
-  <a href="Anfahrt.html"><i class="fa fa-map-location-dot"></i>Anfahrt</a>
-  <a href="Training.html"><i class="fa fa-calendar-days"></i>Training</a>
-  <a href="Kontakt.html"><i class="fa fa-envelope"></i>Kontakt</a>
-</nav>
+<div class="nav-container">
+  <button class="hamburger" id="hamburger-btn">
+    <i class="fa fa-bars"></i>
+  </button>
+
+  <nav class="nav-links" id="nav-links">
+    <a href="index.html"><i class="fa fa-home"></i>Home</a>
+    <a href="Uber-uns.html"><i class="fa fa-users"></i>Über uns</a>
+    <a href="Uber-Aikido.html"><i class="fa fa-graduation-cap"></i>Über Aikido</a>
+    <a href="Galerie.html"><i class="fa fa-photo-film"></i>Galerie</a>
+    <a href="Links.html"><i class="fa fa-square-up-right"></i>Links</a>
+    <a href="Anfahrt.html"><i class="fa fa-map-location-dot"></i>Anfahrt</a>
+    <a href="Training.html"><i class="fa fa-calendar-days"></i>Training</a>
+    <a href="Kontakt.html"><i class="fa fa-envelope"></i>Kontakt</a>
+  </nav>
+</div>
 
 <!-- HERO-Bereich -->
 <section class="hero">
@@ -107,5 +191,23 @@
   </div>
 </footer>
 
+<!-- Auf Mobiles: auf Hamburger-Button-Klick warten -->
+<script>
+  const btn = document.getElementById("hamburger-btn");
+  const nav = document.getElementById("nav-links");
+
+  btn.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+</script>
+
+<!-- Kanji einschweben lassen beim Laden -->
+<script>
+  window.addEventListener('load', () => {
+    const kanji = document.querySelector('.hero-kanji');
+    kanji.classList.add('visible');
+  });
+</script>
 </body>
 </html>
+
