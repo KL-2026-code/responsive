@@ -29,21 +29,47 @@
   .nav-links a { margin: 0 1rem; text-align: center; font-size: 0.9rem; }
   .nav-links a i { display: block; font-size: 1.2rem; margin-bottom: 0.2rem; }
 
+  /* Galerie */
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;
     max-width: 1000px;
     margin: 2rem auto;
+    text-align: center;
   }
-  .gallery img {
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .gallery-item img {
     width: 100%;
+    height: 120px;
+    object-fit: cover;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: transform 0.2s;
   }
-  .gallery img:hover {
+  .gallery-item img:hover {
     transform: scale(1.05);
+  }
+  .gallery-item span {
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: #111827;
+  }
+
+  /* Responsive Anpassungen */
+  @media(max-width: 1024px) {
+    .gallery { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    .gallery-item img { height: 100px; }
+    .gallery-item span { font-size: 0.8rem; }
+  }
+  @media(max-width: 640px) {
+    .gallery { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+    .gallery-item img { height: 80px; }
+    .gallery-item span { font-size: 0.75rem; }
   }
 
   footer {
@@ -76,19 +102,58 @@
 <main>
   <h1 class="text-3xl font-bold text-center mt-6">Galerie</h1>
   <div class="gallery" id="PhotoGallery1">
-    <a href="images/2_TrainingHebel1.jpg"><img src="images/tn_2_TrainingHebel1.jpg" alt="Hebel müssen nicht wehtun, können aber"></a>
-	<a href="images/3_Trainerin2.jpg"><img src="images/tn_3_Trainerin2.jpg" alt="unsere Trainerin Beate (4.Dan)"></a>   
-    <a href="images/4_TrainingWurf4.jpg"><img src="images/tn_4_TrainingWurf4.jpg" alt="Kopfüber ins Vergnügen"></a>	
-    <a href="images/5_LehrgangHerten.jpg"><img src="images/tn_5_LehrgangHerten.jpg" alt="Lehrgang auf der Halde in Herten"></a>
-    <a href="images/6_TrainingHebel2.jpg"><img src="images/tn_6_TrainingHebel2.jpg" alt="wir haben immer viel Spaß..."></a>
-	<a href="images/6b_TrainingHamm6Matte.jpg"><img src="images/6b_TrainingHamm6Matte.jpg" alt="hier trainieren wir ..."></a>
-	<a href="images/7_AusflugKanu.jpg"><img src="images/tn_7_AusflugKanu.jpg" alt="Sommerausflug Paddeln auf der Lippe"></a>
-	<a href="images/8_AusflugRudern.jpg"><img src="images/tn_8_AusflugRudern.jpg" alt="Ausflug im Ruderboot"></a>
-    <!-- Weitere Thumbnails hier einfügen -->
+    <div class="gallery-item">
+      <a href="images/2_TrainingHebel1.jpg">
+        <img src="images/tn_2_TrainingHebel1.jpg" alt="Hebel müssen nicht wehtun, können aber">
+      </a>
+      <span>Hebel müssen nicht wehtun, können aber</span>
+    </div>
+    <div class="gallery-item">
+      <a href="images/3_Trainerin2.jpg">
+        <img src="images/tn_3_Trainerin2.jpg" alt="unsere Trainerin Beate (4.Dan)">
+      </a>
+      <span>unsere Trainerin Beate (4.Dan)</span>
+    </div>
+    <div class="gallery-item">
+      <a href="images/4_TrainingWurf4.jpg">
+        <img src="images/tn_4_TrainingWurf4.jpg" alt="Kopfüber ins Vergnügen">
+      </a>
+      <span>Kopfüber ins Vergnügen</span>
+    </div>
+    <div class="gallery-item">
+      <a href="images/5_LehrgangHerten.jpg">
+        <img src="images/tn_5_LehrgangHerten.jpg" alt="Lehrgang auf der Halde in Herten">
+      </a>
+      <span>Lehrgang auf der Halde in Herten</span>
+    </div>
+    <div class="gallery-item">
+      <a href="images/6_TrainingHebel2.jpg">
+        <img src="images/tn_6_TrainingHebel2.jpg" alt="wir haben immer viel Spaß...">
+      </a>
+      <span>wir haben immer viel Spaß...</span>
+    </div>
+    <div class="gallery-item">
+      <a href="images/6b_TrainingHamm6Matte.jpg">
+        <img src="images/6b_TrainingHamm6Matte.jpg" alt="hier trainieren wir ...">
+      </a>
+      <span>hier trainieren wir ...</span>
+    </div>
+    <div class="gallery-item">
+      <a href="images/7_AusflugKanu.jpg">
+        <img src="images/tn_7_AusflugKanu.jpg" alt="Sommerausflug Paddeln auf der Lippe">
+      </a>
+      <span>Sommerausflug Paddeln auf der Lippe</span>
+    </div>
+    <div class="gallery-item">
+      <a href="images/8_AusflugRudern.jpg">
+        <img src="images/tn_8_AusflugRudern.jpg" alt="Ausflug im Ruderboot">
+      </a>
+      <span>Ausflug im Ruderboot</span>
+    </div>
+    <!-- Weitere Items hier einfügen -->
   </div>
 </main>
 
-<!-- FOOTER -->
 <footer class="shadow-inner mt-10">
   <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-sm">
     <div>
